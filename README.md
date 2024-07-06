@@ -1,4 +1,4 @@
-# AspireNex1
+# AspireNex
 # Responsive Portfolio Website 
 
 This project is a responsive portfolio website design built with HTML, CSS, and JavaScript. It includes a dynamic navigation menu, a hero section with a brief introduction, social media links, and a modal for a "Guess the Number" game. The site is designed to be responsive and works well on different screen sizes.
