@@ -46,7 +46,7 @@ To get a local copy up and running, follow these simple steps.
    git clone https://github.com/ZORAK69/AspireNex
 
    
-#Usage 
+# Usage -
 
 1. Open the **index.html ** file in your web browser to view the website.
 
@@ -58,18 +58,18 @@ c) scripts.js for JavaScript functionality
    
 3. Add your **images** to the images folder and update the paths in the HTML file if needed.
 
-#Customization 
+# Customization -
 
 1. Update the hero section with your own profile picture and introduction.
 2. Add your own social media links.
 3. Modify the dropdown menu to include your own certificates.
 4. Customize the "Guess the Number" game as desired.
 
-#Responsive Design 
+# Responsive Design -
 
 The website is designed to be responsive. The navigation menu will toggle to a dropdown menu on smaller screens. Adjust the media queries in **'style.css'** if you need to customize the responsive behavior.
 
-#Contributing 
+# Contributing -
 
 Contributions are what make the open-source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
 
@@ -79,7 +79,7 @@ Contributions are what make the open-source community such an amazing place to b
 4. Push to the Branch ('git push origin feature/AmazingFeature')
 5. Open a Pull Request
 
-#NOTE 
+# NOTE -
 
 Make sure to replace placeholders like `yourusername`, `yourrepository`, `yourwebsite.com`, and contact details with your actual information. This README provides an overview of your project, installation instructions, usage details, and contribution guidelines.
 
