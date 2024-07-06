@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        .duck {
+            position: fixed;
+            bottom: 0;
+            left: -100px;
+            width: 100px;
+            height: 100px;
+            background-image: url('images/duck-animation.gif');
+            background-size: cover;
+            animation: walkDuck 10s linear infinite;
+        }
+
+        @keyframes walkDuck {
+            0% {
+                transform: translateX(-100px);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            min-width: auto; 
+            white-space: nowrap; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #1e90ff; 
+        }
+
+        .togglebtn {
+            cursor: pointer;
+            display: none;
+        }
+
+        .togglebtn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: #333;
+        }
+
+        .navlinks {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .navlinks li {
+            margin: 0 15px;
+        }
+
+        .navlinks a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 0;
+        }
+
+        .navlinks a:hover {
+            color: #1e90ff; 
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #1e90ff; /* Border color */
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #1e90ff; /* Border color */
+        }
+
+        .game-container input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .game-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+
+        .game-container #message {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .game-container #attempts {
+            margin-top: 10px;
+        }
+        
+        .social {
+            margin-top: 20px;
+        }
+
+        .social a {
+            margin-right: 10px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .social a:hover {
+            color: #1e90ff;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .logo:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .navlinks {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navlinks.open {
+                display: flex;
+            }
+
+            .togglebtn {
+                display: block;
+            }
+
+            .navlinks li {
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-s"></i>
+                    <div class="logo-text"> SUNIL</div>
+                    <div class="tooltip">Click me to play a game</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="files/resume.pdf" target="_blank">Resume</a></li>
+                        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=sunilnekki89@gmail.com" target="_blank" class="btn">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Certificates</a>
+                            <div class="dropdown-content">
+                                <a href="certificates/cyber security.pdf" target="_blank">Certificate 1</a>
+                                <a href="certificates/Automate CS.pdf" target="_blank">Certificate 2</a>
+                                <a href="certificates/linux and sql.pdf" target="_blank">Certificate 3</a>
+                                <a href="certificates/network.pdf" target="_blank">Certificate 4</a>
+                                <a href="certificates/play it safe.pdf" target="_blank">Certificate 5</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container">
+                <div class="hero-pic">
+                    <img src="images/main_photo.jpg" alt="profile pic">
+                </div>
+                <div class="hero-text">
+                    <h5>Hi I'm <span class="input">Frontend Developer</span></h5>
+                    <h1>S SUNIL</h1>
+                    <p>Welcome to my website</p><br>
+                    <p>
+                        I am a highly motivated engineering aficionado with a deep understanding of core principles,
+                        thrives on translating academic knowledge into tangible results through a passion for uncovering ingenious solutions,
+                        and is committed to contributing strategic planning and team leadership skills to drive project excellence.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="files/resume.pdf" class="btn active" download>Download Resume</a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sunilnekki89@gmail.com" target="_blank" class="btn">Contact</a>
+                    </div>
+
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/sunil-s-b5871417a/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/weirdaf/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://in.pinterest.com/Dead_wannabe/"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="https://github.com/ZORAK69" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Guess the Number Game -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="game-container">
+                <h1>Guess the Number Game</h1>
+                <p>Guess a number between 1 and 100</p>
+                <input type="number" id="guess" min="1" max="100">
+                <button id="submit">Submit Guess</button>
+                <p id="message"></p>
+                <p id="attempts">Attempts: 0</p>
+                <button id="reset">Reset Game</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Duck Animation -->
+    <div class="duck"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script>
+        var togglebtn = document.querySelector(".togglebtn");
+        var nav = document.querySelector(".navlinks");
+
+        togglebtn.addEventListener("click", function() {
+            this.classList.toggle("click");
+            nav.classList.toggle("open");
+        });
+
+        var typed = new Typed(".input", {
+            strings: ["Frontend Developer", "Gamer", "Cyber security analyst", "Backend developer"],
+            typeSpeed: 50,
+            backSpeed: 55,
+            loop: true
+        });
+
+        // Modal functionality
+        var modal = document.getElementById('gameModal');
+        var closeModal = document.getElementsByClassName("close")[0];
+
+        // Open modal when S icon is clicked
+        var sIcon = document.querySelector('.fa-solid.fa-s');
+        sIcon.addEventListener('click', function() {
+            modal.style.display = "block";
+        });
+
+        // Close modal when X is clicked
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        // Close modal when outside modal content is clicked
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // Game logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            let attempts = 0;
+
+            const submitButton = document.getElementById('submit');
+            const resetButton = document.getElementById('reset');
+            const message = document.getElementById('message');
+            const attemptsDisplay = document.getElementById('attempts');
+
+            submitButton.addEventListener('click', () => {
+                const userGuess = parseInt(document.getElementById('guess').value);
+                attempts++;
+
+                if (userGuess === randomNumber) {
+                    message.textContent = 'Congratulations! You guessed the correct number!';
+                    message.style.color = 'green';
+                    submitButton.disabled = true;
+                } else if (userGuess > randomNumber) {
+                    message.textContent = 'Too high! Try again.';
+                    message.style.color = 'red';
+                } else {
+                    message.textContent = 'Too low! Try again.';
+                    message.style.color = 'red';
+                }
+
+                attemptsDisplay.textContent = `Attempts: ${attempts}`;
+            });
+
+            resetButton.addEventListener('click', () => {
+                attempts = 0;
+                message.textContent = '';
+                attemptsDisplay.textContent = 'Attempts: 0';
+                document.getElementById('guess').value = '';
+                submitButton.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
