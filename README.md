@@ -52,9 +52,9 @@ To get a local copy up and running, follow these simple steps.
 
 2. To modify the content, open the files in your text editor and make the necessary changes:
 
-a) index.html for the main structure
-b) style.css for styling
-c) scripts.js for JavaScript functionality
+a) index.html for the main structure.
+b) style.css for styling.
+c) scripts.js for JavaScript functionality.
    
 3. Add your **images** to the images folder and update the paths in the HTML file if needed.
 
@@ -83,7 +83,7 @@ Contributions are what make the open-source community such an amazing place to b
 
 Make sure to replace placeholders like `yourusername`, `yourrepository`, `yourwebsite.com`, and contact details with your actual information. This README provides an overview of your project, installation instructions, usage details, and contribution guidelines.
 
-#**Contact** 
+# **Contact** 
 
 Sunil S - @sunilnekki89@gmail.com
 
